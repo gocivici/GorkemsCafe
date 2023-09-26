@@ -26,10 +26,10 @@ const bPlayers = {
 io.on('connection', (socket)=>{
     console.log('user connected')
     bPlayers[socket.id] = {
-        x:200,
-        y:200,
-        clickX:200,
-        clickY:200,
+        x:615,
+        y:136,
+        clickX:615,
+        clickY:136,
         message:'',
         username:"Visitor"
     } //create player object with new socket id property

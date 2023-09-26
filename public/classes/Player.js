@@ -38,14 +38,14 @@ class Player extends Sprite {
         ctx.fillStyle = this.color;
         
         ctx.textAlign = "center";
-        ctx.fillStyle = 'white';
+        ctx.fillStyle = 'hsla(211, 100%, 100%, 0.5)';
         ctx.font = 'normal 12px sans-serif';
        
         ctx.fillText("Click X&Y :"+[this.clickX,this.clickY], this.position.x, this.position.y-110);
         ctx.fillText("Position: "+[Math.round(this.position.x),Math.round(this.position.y)], this.position.x, this.position.y-98);
         ctx.fillText("Inc X&Y :"+[this.incrementX.toFixed(2),this.incrementY.toFixed(2)], this.position.x, this.position.y-85);
-        ctx.font = 'italic 15px sans-serif';
-        ctx.fillStyle = 'pink';
+        ctx.font = 'bold 18px sans-serif';
+        ctx.fillStyle = 'white';
         ctx.fillText(this.message, this.position.x, this.position.y-65);
         ctx.font = 'Normal 16px sans-serif';
         ctx.textAlign = "center";

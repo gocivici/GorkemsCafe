@@ -32,8 +32,8 @@ clickCoordinates = [100,100]
 
 // setInterval(player.animate, 50);
 
-canvas.width = 32 * 28
-canvas.height = 32 * 15
+canvas.width = 32 * 21 //672
+canvas.height = 32 * 12 //384
 
 console.log(ctx);
 
