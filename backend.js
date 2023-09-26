@@ -53,7 +53,7 @@ io.on('connection', (socket)=>{
 
     socket.on('username',(username)=>{
         bPlayers[socket.id].username = username
-        console.log("updated username for: "+bPlayers[socket.id])
+        console.log("updated username for: "+bPlayers[socket.id].username)
     })
 
     socket.on('message',(message)=>{

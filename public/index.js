@@ -86,7 +86,7 @@ socket.on('updatePlayers', (bPlayers) =>{
             fPlayers[id].clickY = bPlayer.clickY
             fPlayers[id].message = bPlayer.message
             fPlayers[id].username = bPlayer.username
-            
+
             //update player position without animation if tab is inactive
             if (document.hidden) {
                 fPlayers[id].position.x = bPlayer.x
@@ -179,9 +179,9 @@ socket.emit('clickPosition',clickCoordinates)
 document.querySelector('#textInput').addEventListener('submit',(event)=>{
     event.preventDefault() //do not refresh page whenform submited
     var inputValue = document.querySelector('#input').value
-    if(inputValue.includes("/name")){
+    if(inputValue.includes("/name ")){
         console.log('namechange')
-        fPlayers[socket.id].username = inputValue.replace("/name","")
+        fPlayers[socket.id].username = inputValue.replace("/name ","")
         socket.emit('username',fPlayers[socket.id].username)
     }else{
     fPlayers[socket.id].message=document.querySelector('#input').value

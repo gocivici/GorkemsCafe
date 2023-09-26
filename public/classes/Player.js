@@ -44,22 +44,26 @@ class Player extends Sprite {
         ctx.fillText("Click X&Y :"+[this.clickX,this.clickY], this.position.x, this.position.y-110);
         ctx.fillText("Position: "+[Math.round(this.position.x),Math.round(this.position.y)], this.position.x, this.position.y-98);
         ctx.fillText("Inc X&Y :"+[this.incrementX.toFixed(2),this.incrementY.toFixed(2)], this.position.x, this.position.y-85);
-        ctx.font = 'bold 18px sans-serif';
-        ctx.fillStyle = 'white';
-        ctx.fillText(this.message, this.position.x, this.position.y-65);
+
         ctx.font = 'Normal 16px sans-serif';
         ctx.textAlign = "center";
         ctx.fillStyle = 'orange';
         ctx.fillText("user ID: " + this.userId, this.position.x, this.position.y+35);
-        ctx.fillStyle = 'cyan';
-        ctx.fillText(this.username, this.position.x, this.position.y+15);
 
         ctx.fill()
         
         
     }
     update(){
+        ctx.textAlign = "center";
+        ctx.font = 'bold 18px win98';
+        ctx.fillStyle = 'cyan';
+        ctx.fillText(this.username, this.position.x, this.position.y+15);
+        ctx.font = 'normal 15px sans-serif';
+        ctx.fillStyle = 'white';
+        ctx.fillText(this.message, this.position.x, this.position.y-65);
 
+        ctx.fill()
 
     
     // if((Math.sign(incrementX)==1&&fPlayer.x<clickCoordinates[0])||(Math.sign(incrementX)==-1&&fPlayer.x>clickCoordinates[0])){fPlayer.x += incrementX;fPlayer.atPosition=false;    socket.emit('clickPositionX',fPlayer.x)}else{fPlayer.atPosition=true}
