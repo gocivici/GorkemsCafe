@@ -11,7 +11,7 @@ const io = new Server(server, {
     pingTimeout:5000
 })
 
-const port = 3000
+// const port = 3000
 
 app.use(express.static('public'))
 
@@ -85,6 +85,6 @@ setInterval(() =>{
         io.emit('updatePlayers',bPlayers)
 },15)
 
-server.listen(port,() =>{
-    console.log(`app listening on port ${port}`)
+server.listen((process.env.PORT || 3000),() =>{
+    console.log(`app listening on port ${(process.env.PORT || 3000)}`)
 })
