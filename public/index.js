@@ -16,6 +16,7 @@ let row = 0;
 let readyNow = false
 let animationFrame = 0;
 let pageVisible = true;
+let debugMode = true;
 let timeoutHandle;
 
 // let atPosition = true;
@@ -134,7 +135,7 @@ function animate(){
         const allfPlayer = fPlayers[id]
 
     allfPlayer.draw()
-    allfPlayer.debug()
+    if(debugMode) allfPlayer.debug()
     allfPlayer.update()
     
     }
@@ -183,6 +184,9 @@ document.querySelector('#textInput').addEventListener('submit',(event)=>{
         console.log('namechange')
         fPlayers[socket.id].username = inputValue.replace("/name ","")
         socket.emit('username',fPlayers[socket.id].username)
+    }else if(inputValue==='/debug'){
+        if(debugMode) {debugMode=false;}else{debugMode=true;}
+        
     }else{
     fPlayers[socket.id].message=document.querySelector('#input').value
 
