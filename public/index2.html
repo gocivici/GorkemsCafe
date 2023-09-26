@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Görkem's Cafe</title>
+</head>
+<body>
+    <!-- <img id="myImage" src="4vcysm.png"> -->
+    <canvas id="canvas"></canvas>
+
+    <form id="textInput" action="" >
+        <input placeholder="Say somethinng" id="input" autocomplete="off" /><button>Send</button>
+      </form>
+
+</body>
+<style>
+#input {
+    margin: 0px;
+    width: 735px;
+    font-size: 18px;
+}
+#textInput > button{
+    font-size: 18px;
+}
+
+</style>
+<script src="https://cdn.socket.io/4.6.1/socket.io.min.js"></script>
+<script src="./classes/Sprite.js"></script>
+<script src="./classes/Player.js"></script>
+<script src="index.js"></script>
+
+</html>
