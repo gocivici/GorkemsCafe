@@ -31,7 +31,8 @@ io.on('connection', (socket)=>{
         clickX:615,
         clickY:136,
         message:'',
-        username:"Visitor"
+        username:"Visitor",
+        timeoutId:0
     } //create player object with new socket id property
 
     io.emit('updatePlayers',bPlayers)
@@ -56,15 +57,16 @@ io.on('connection', (socket)=>{
     })
 
     socket.on('message',(message)=>{
-
-        clearTimeout(timeoutHandle);
+        let timeoutId;
+        clearTimeout(bPlayers[socket.id].timeoutId);
         bPlayers[socket.id].message = message
 
         function startTimer() {
-            timeoutHandle = setTimeout(() => {
+          timeoutId = setTimeout(() => {
                 bPlayers[socket.id].message = ''
             }, 4000);
           }
+          bPlayers[socket.id].timeoutId = timeoutId
         startTimer();
 
         console.log(bPlayers)

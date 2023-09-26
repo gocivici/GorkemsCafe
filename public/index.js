@@ -16,7 +16,7 @@ let row = 0;
 let readyNow = false
 let animationFrame = 0;
 let pageVisible = true;
-
+let timeoutHandle;
 
 // let atPosition = true;
 // img.src = 'demaSprite.png';
@@ -86,6 +86,7 @@ socket.on('updatePlayers', (bPlayers) =>{
             fPlayers[id].clickY = bPlayer.clickY
             fPlayers[id].message = bPlayer.message
             fPlayers[id].username = bPlayer.username
+            
             //update player position without animation if tab is inactive
             if (document.hidden) {
                 fPlayers[id].position.x = bPlayer.x
