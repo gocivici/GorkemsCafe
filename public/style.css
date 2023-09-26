@@ -2,7 +2,7 @@
 
     :root {
         --header-image: url('./bgHOME4.png');
-        --body-bg-image: url('./background2.png');
+        --body-bg-image: url('./abstract2.jpg');
 
         /* colors */
         /* --content: #c3aae5; */
@@ -67,9 +67,9 @@ and then link it! Many fonts have separate files for each style
         margin: 0;
         /* background-color: #08031A; */
         /* you can delete the line below if you'd prefer to not use an image */
-        background-repeat: no-repeat;
+        /* background-repeat: no-repeat;
         background-attachment: fixed;
-        background-size: cover;
+        background-size: cover; */
         color: #e9e4de;
         background-image: var(--body-bg-image);
     }
