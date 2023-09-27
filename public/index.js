@@ -16,7 +16,7 @@ let row = 0;
 let readyNow = false
 let animationFrame = 0;
 let pageVisible = true;
-let debugMode = true;
+let debugMode = false;
 let timeoutHandle;
 
 // let atPosition = true;
