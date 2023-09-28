@@ -35,7 +35,7 @@ class Player extends Sprite {
         
         // ctx.drawImage(img,this.animationColumn*frameWidth,row*frameHeight, frameWidth, frameHeight, this.position.x-frameWidth/2-8, this.position.y-frameHeight/2,frameWidth*2, frameHeight*2);
         
-        ctx.fillStyle = this.color;
+        // ctx.fillStyle = this.color;
         
         ctx.textAlign = "center";
         ctx.fillStyle = 'hsla(211, 100%, 100%, 0.5)';
@@ -55,67 +55,70 @@ class Player extends Sprite {
         
     }
     update(){
+        if(this.message!=''){SpeechBubble(ctx,ctx.measureText(this.message).width-20,20,'hsla(181, 100%, 100%, 0.6)',this.position.x-25,this.position.y-100,10)}
+
+        ctx.beginPath();
         ctx.textAlign = "center";
         ctx.font = 'bold 18px win98';
         ctx.fillStyle = 'cyan';
         ctx.fillText(this.username, this.position.x, this.position.y+15);
         ctx.font = 'normal 15px sans-serif';
-        ctx.fillStyle = 'white';
-        ctx.fillText(this.message, this.position.x, this.position.y-65);
+        
+        ctx.fillStyle = 'black';
+        ctx.fillText(this.message, this.position.x-5, this.position.y-80,200);
 
         ctx.fill()
 
+
+        function SpeechBubble(ctx, width, height, color, x, y, radius, text)
+        {
+          var maxWidth = 300;
+          var r = radius;
+          var w = (width > maxWidth ? maxWidth : width) + 40;
+          var h = ((width > maxWidth ? Math.ceil(width / maxWidth) : 1) * height) + 10;
+          var pi2 = Math.PI * 2;
+          var ap = w/2-10;
+          var aw = 20;
+          var ah = 10;
+            x = x-(width/2)
+          // Speechbubble create start
+          ctx.beginPath();
+          ctx.arc(x+r, y+r, r, pi2 * 0.5, pi2 * 0.75);
+          ctx.arc(x+ w - r, y+ r, r, pi2 * 0.75, pi2);
+          ctx.arc(x+w - r,y+ h - r, r, 0, pi2 * 0.25);
+          ctx.lineTo(x+w - ap, y+h);
+          ctx.lineTo(x+w - ap - (aw / 2),y+ h + ah);
+          ctx.lineTo(x+w - ap - aw, y+h);
+          ctx.arc(x+r, y+h - r, r, pi2 * 0.25, pi2 * 0.5);
+          ctx.fillStyle = color;
+          ctx.fill();
+          // Speechbubble create end
+        
+          // Speechbubble text start
+        //   ctx.fillStyle = "#fff";
+        //   wrapText(ctx, text, 25, 17, maxWidth, 16);
+          // Speechbubble text end
+        }
+        
+//ctx.measureText(this.message).width
     
     // if((Math.sign(incrementX)==1&&fPlayer.x<clickCoordinates[0])||(Math.sign(incrementX)==-1&&fPlayer.x>clickCoordinates[0])){fPlayer.x += incrementX;fPlayer.atPosition=false;    socket.emit('clickPositionX',fPlayer.x)}else{fPlayer.atPosition=true}
     // if((Math.sign(incrementY)==1&&fPlayer.y<clickCoordinates[1])||(Math.sign(incrementY)==-1&&fPlayer.y>clickCoordinates[1])){fPlayer.y += incrementY;fPlayer.atPosition=false;    socket.emit('clickPositionY',fPlayer.y)}else{fPlayer.atPosition=true}
-    if(this.position.x.toFixed(2)!=this.clickX){
-        
     calculateIncrement(this);
-
-//     if(this.messageSent){
-//         var refreshId = setInterval(() =>{
-//             clearInterval(refreshId);
-//             this.message=''
-//             console.log("message deleted")
-//             this.messageSent=false
-
-//     },2000)
-// }
-console.log(this.messageSent)
-    
-    if(length>1){
-        this.atPosition=false
-
-        if(225<this.angleDeg && this.angleDeg<315){this.image = this.Up; console.log('going up')}else
-        if(45<this.angleDeg && this.angleDeg<135){this.image = this.Down}else
-        if(135<this.angleDeg && this.angleDeg<225){this.image = this.Left}else{this.image = this.Right}
-        // console.log(this.angleDeg)
-
-        // switch(this.angleDeg){
-        //     case -135:
-        //         this.image = this.Up
-        //         break;
-        //     case 1:
-        //         this.image = this.Down
-        //         break;
-        // }
-
-
-
-        this.position.x+=this.incrementX;
-        this.position.y+=this.incrementY;
-        // console.log('goingtolocation')
-
-    } else{
-        this.atPosition=true
+        if(length>1){
         
-    }
-    // function clearMessage(){
-    //    this.message='t'
-    //     console.log("message deleted")
-    //     this.messageSent=false
-    // }
-}
+            this.atPosition=false
+
+            if(225<this.angleDeg && this.angleDeg<315){this.image = this.Up}else
+            if(45<this.angleDeg && this.angleDeg<135){this.image = this.Down}else
+            if(135<this.angleDeg && this.angleDeg<225){this.image = this.Left}else{this.image = this.Right}
+
+            this.position.x+=this.incrementX;
+            this.position.y+=this.incrementY;
+            // console.log('goingtolocation')
+        }else{
+            this.atPosition=true
+        }
     
         function calculateIncrement(player){
             var dx = player.clickX - player.position.x;
@@ -144,3 +147,4 @@ console.log(this.messageSent)
     
 
 }
+

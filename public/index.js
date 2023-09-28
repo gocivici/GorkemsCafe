@@ -19,6 +19,8 @@ let pageVisible = true;
 let debugMode = false;
 let timeoutHandle;
 
+
+
 // let atPosition = true;
 // img.src = 'demaSprite.png';
 clickCoordinates = [100,100]
@@ -137,6 +139,7 @@ function animate(){
     allfPlayer.draw()
     if(debugMode) allfPlayer.debug()
     allfPlayer.update()
+    // allfPlayer.message()
     
     }
 

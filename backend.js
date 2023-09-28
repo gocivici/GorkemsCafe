@@ -11,7 +11,10 @@ const io = new Server(server, {
     pingTimeout:5000
 })
 
-app.use(requireHTTPS);
+var Filter = require('bad-words')
+filter = new Filter();
+
+app.use(requireHTTPS); // Set 'SET NODE_ENV=development' in local computer before use
 
 function requireHTTPS(req, res, next) {
     // The 'x-forwarded-proto' check is for Heroku
@@ -68,7 +71,7 @@ io.on('connection', (socket)=>{
     socket.on('message',(message)=>{
         let timeoutId;
         clearTimeout(bPlayers[socket.id].timeoutId);
-        bPlayers[socket.id].message = message
+        bPlayers[socket.id].message = filter.clean(message)
 
         function startTimer() {
           timeoutId = setTimeout(() => {
