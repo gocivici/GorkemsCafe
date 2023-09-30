@@ -37,6 +37,7 @@ const bPlayers = {
 
 io.on('connection', (socket)=>{
     console.log('user connected')
+    resetDisconnectTimer();
     bPlayers[socket.id] = {
         x:615,
         y:136,
@@ -56,10 +57,13 @@ io.on('connection', (socket)=>{
     })
 
     socket.on('clickPosition',(coordinates)=>{
+        resetDisconnectTimer();
         bPlayers[socket.id].clickX = coordinates[0]
         bPlayers[socket.id].clickY = coordinates[1]
         bPlayers[socket.id].x = bPlayers[socket.id].clickX
         bPlayers[socket.id].y = bPlayers[socket.id].clickY
+   
+
         console.log(bPlayers)
     })
 
@@ -83,6 +87,11 @@ io.on('connection', (socket)=>{
 
         console.log(bPlayers)
     })
+
+    function resetDisconnectTimer(){
+        clearTimeout(socket.inactivityTimeout);
+        socket.inactivityTimeout = setTimeout(() => socket.disconnect(true), 1000 * 60 * 15);
+    }
     // socket.on('clickPositionX',(coordinates)=>{
     //     bPlayers[socket.id].x = coordinates
     //     console.log(coordinates)
@@ -102,3 +111,4 @@ setInterval(() =>{
 server.listen((process.env.PORT || 3000),() =>{
     console.log(`app listening on port ${(process.env.PORT || 3000)}`)
 })
+

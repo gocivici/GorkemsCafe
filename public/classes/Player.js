@@ -55,7 +55,8 @@ class Player extends Sprite {
         
     }
     update(){
-        if(this.message!=''){SpeechBubble(ctx,ctx.measureText(this.message).width-20,20,'hsla(181, 100%, 100%, 0.6)',this.position.x-25,this.position.y-100,10)}
+        if(this.message!=''){SpeechBubble(ctx,ctx.measureText(this.message).width-20,20,'hsla(181, 100%, 100%, 0.6)',this.position.x-20,this.position.y-100,10)}
+        // CollisionRect(this,"hsla(141, 100%, 52%, 0.5)")
 
         ctx.beginPath();
         ctx.textAlign = "center";
@@ -65,40 +66,12 @@ class Player extends Sprite {
         ctx.font = 'normal 15px sans-serif';
         
         ctx.fillStyle = 'black';
-        ctx.fillText(this.message, this.position.x-5, this.position.y-80,200);
+        ctx.fillText(this.message, this.position.x, this.position.y-80);
 
         ctx.fill()
 
 
-        function SpeechBubble(ctx, width, height, color, x, y, radius, text)
-        {
-          var maxWidth = 300;
-          var r = radius;
-          var w = (width > maxWidth ? maxWidth : width) + 40;
-          var h = ((width > maxWidth ? Math.ceil(width / maxWidth) : 1) * height) + 10;
-          var pi2 = Math.PI * 2;
-          var ap = w/2-10;
-          var aw = 20;
-          var ah = 10;
-            x = x-(width/2)
-          // Speechbubble create start
-          ctx.beginPath();
-          ctx.arc(x+r, y+r, r, pi2 * 0.5, pi2 * 0.75);
-          ctx.arc(x+ w - r, y+ r, r, pi2 * 0.75, pi2);
-          ctx.arc(x+w - r,y+ h - r, r, 0, pi2 * 0.25);
-          ctx.lineTo(x+w - ap, y+h);
-          ctx.lineTo(x+w - ap - (aw / 2),y+ h + ah);
-          ctx.lineTo(x+w - ap - aw, y+h);
-          ctx.arc(x+r, y+h - r, r, pi2 * 0.25, pi2 * 0.5);
-          ctx.fillStyle = color;
-          ctx.fill();
-          // Speechbubble create end
-        
-          // Speechbubble text start
-        //   ctx.fillStyle = "#fff";
-        //   wrapText(ctx, text, 25, 17, maxWidth, 16);
-          // Speechbubble text end
-        }
+
         
 //ctx.measureText(this.message).width
     
@@ -148,3 +121,39 @@ class Player extends Sprite {
 
 }
 
+function SpeechBubble(ctx, width, height, color, x, y, radius, text)
+{
+  var maxWidth = 300;
+  var r = radius;
+  var w = (width > maxWidth ? maxWidth : width) + 40;
+  var h = ((width > maxWidth ? Math.ceil(width / maxWidth) : 1) * height) + 10;
+  var pi2 = Math.PI * 2;
+  var ap = w/2-5;
+  var aw = 10;
+  var ah = 8;
+    x = x-(width/2)
+  // Speechbubble create start
+  ctx.beginPath();
+  ctx.arc(x+r, y+r, r, pi2 * 0.5, pi2 * 0.75);
+  ctx.arc(x+ w - r, y+ r, r, pi2 * 0.75, pi2);
+  ctx.arc(x+w - r,y+ h - r, r, 0, pi2 * 0.25);
+  ctx.lineTo(x+w - ap, y+h);
+  ctx.lineTo(x+w - ap - (aw / 2),y+ h + ah);
+  ctx.lineTo(x+w - ap - aw, y+h);
+  ctx.arc(x+r, y+h - r, r, pi2 * 0.25, pi2 * 0.5);
+  ctx.fillStyle = color;
+  ctx.fill();
+  // Speechbubble create end
+
+  // Speechbubble text start
+//   ctx.fillStyle = "#fff";
+//   wrapText(ctx, text, 25, 17, maxWidth, 16);
+  // Speechbubble text end
+}
+
+function CollisionRect(object,color){
+    ctx.beginPath();
+    ctx.fillStyle = color;
+    ctx.fillRect(object.position.x, object.position.y, object.width, object.height)
+    ctx.fill();
+}

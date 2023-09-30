@@ -3,7 +3,6 @@ const ctx = canvas.getContext('2d')
 const socket = io()
 
 
-
 ctx.imageSmoothingEnabled = false;
 const speed = 2;
 var frameCount = 10
@@ -32,7 +31,9 @@ clickCoordinates = [100,100]
 // background.onload = function(){
 //     ctx.drawImage(background,0,0);   
 // }
-
+if(!localStorage.getItem('username')){
+    localStorage.setItem('username','Visitor')
+   }
 // setInterval(player.animate, 50);
 
 canvas.width = 32 * 21 //672
@@ -50,13 +51,21 @@ const background1 = new Sprite({
     imageSrc: './img/baackground.png'
 })
 
+
+socket.on('disconnect',(reason)=>{
+    console.log(reason);
+    if (confirm("Kicked to due inactivity, click OK to refresh page") == true) {
+        window.location.reload();
+      }
+})
+
 // const player = new Player(100,100,'Görkem')
 const fPlayers = {}
 
 socket.on('updatePlayers', (bPlayers) =>{
     for(const id in bPlayers){
         const bPlayer = bPlayers[id]
-
+        
         if(!fPlayers[id]){
             fPlayers[id] = new Player({
                 position:{
@@ -68,7 +77,7 @@ socket.on('updatePlayers', (bPlayers) =>{
                 clickX:bPlayer.clickX,
                 clickY:bPlayer.clickY,
                 userId:id,
-                username:'Visitor',
+                username:'',
                 message:'',
                 atPosition:true,
                 animationColumn:0,
@@ -83,6 +92,9 @@ socket.on('updatePlayers', (bPlayers) =>{
                 }
                 
             })
+            fPlayers[socket.id].username = localStorage.getItem('username')
+            socket.emit('username',fPlayers[socket.id].username);
+            
         } else { 
             // if players already exist
             fPlayers[id].clickX = bPlayer.clickX
@@ -162,8 +174,10 @@ function animate(){
 
 
 
-
 animate()
+
+
+
 canvas.addEventListener('mousedown', function(e) {
     clickCoordinates = getCursorPosition(canvas, e)
 
@@ -186,6 +200,7 @@ document.querySelector('#textInput').addEventListener('submit',(event)=>{
     if(inputValue.includes("/name ")){
         console.log('namechange')
         fPlayers[socket.id].username = inputValue.replace("/name ","")
+        localStorage.setItem('username',fPlayers[socket.id].username);
         socket.emit('username',fPlayers[socket.id].username)
     }else if(inputValue==='/debug'){
         if(debugMode) {debugMode=false;}else{debugMode=true;}
