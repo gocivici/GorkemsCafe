@@ -115,7 +115,8 @@ and change the media query according to the comment! */
         border-right: none;
         /* box-shadow: inset -1px -1px #fff, inset 1px 1px grey, inset -2px -2px #dfdfdf, inset 2px 2px #0a0a0a; */
         margin: 0px;
-        width: 530px;
+        width: 93%;
+        /* width: 530px; */
         margin-right:0px;
         font-size: 18px;
         height: 34px;
@@ -128,12 +129,14 @@ and change the media query according to the comment! */
     }
     #textInput > button{
         font-size: 18px;
-        width: 16%;
+        width: 15%;
         padding: 5px 5px;
+        /* display: inline; */
         /* margin-top: 10px; */
         vertical-align: middle;
         /* margin-right: 5px; */
         height: 34px;
+        /* float: right; */
         /* padding: 1px 2px; */
         /* all:initial; */
     }
@@ -141,6 +144,7 @@ and change the media query according to the comment! */
     #textInput{
         margin-top: 10px;
         margin-bottom: 10px;
+        display: flex;
         /* vertical-align: middle; */
     }
 
@@ -148,6 +152,15 @@ and change the media query according to the comment! */
         display: none;
     }
 
+    .inputWrapper{
+        width: 85%;
+        height: 100%;
+        padding-right: 5px;
+        /* padding: 2px; */
+
+        /* display: inline; */
+        /* box-shadow: inset -1px -1px #fff, inset 1px 1px grey, inset -2px -2px #dfdfdf, inset 2px 2px #0a0a0a; */
+    }
     #emojiButton{
         border:2px solid grey;
         /* border-left: none; */
@@ -156,14 +169,18 @@ and change the media query according to the comment! */
         font-size: 1.5em !important;
         background-color: white;
         /* border: none; */
-        margin-right: 5px;
+        /* margin-right: 5px; */
         min-width: 20px !important;
-        width: 40px !important;
+        width: 7% !important;
         height: 34px !important;
         box-shadow: none;
         color: black !important;
         padding:0px !important;
         border-width: 2px;
+    /* border-style: inset;
+    border-top: solid black 2px;
+    border-bottom: solid grey 2px;
+    border-right: solid grey 2px; */
 
         /* padding: 0px !important; */
     }
