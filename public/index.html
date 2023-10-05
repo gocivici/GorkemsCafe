@@ -30,8 +30,12 @@
                     </ul>
                 </nav>    
             </div>
+            <div class="tooltip" role="tooltip">
+                <emoji-picker></emoji-picker>
+              </div>
 
             <div id="flex">
+
                 
                 <!-- <aside id="leftSidebar" style="margin-right: 10px;"> -->
                     <!-- <div class="title">Navigation</div> -->
@@ -56,16 +60,21 @@
                 </div>
             <div class="window-body">
 
+
                 <main>
                     <canvas id="canvas"></canvas>
 
                     <!-- <canvas id="canvas"></canvas> -->
+                    
                     <form id="textInput" action="" >
-                        <input placeholder="Say something" maxlength="20" required="required" id="input" autocomplete="off" /><button id="messageButton">Send</button>
+                        <input placeholder="Say something" maxlength="20" required="required" id="input" autocomplete="off" /><button type="button" id="emojiButton">🙂</button><button id="messageButton">Send</button>
                       </form>
+                      
+
 
                     
                 </main>
+                
             </div>
             </div>
            
@@ -109,5 +118,8 @@
 <script src="https://cdn.socket.io/4.6.1/socket.io.min.js"></script>
 <script src="./classes/Sprite.js"></script>
 <script src="./classes/Player.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/npm/emoji-picker-element@^1/index.js"></script>
+<script type="module" src="popup.js"></script>
 <script src="index.js"></script>
+
 </html>

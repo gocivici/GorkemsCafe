@@ -75,7 +75,8 @@ io.on('connection', (socket)=>{
     socket.on('message',(message)=>{
         let timeoutId;
         clearTimeout(bPlayers[socket.id].timeoutId);
-        bPlayers[socket.id].message = filter.clean(message)
+        // bPlayers[socket.id].message = filter.clean(message)
+        bPlayers[socket.id].message = message
 
         function startTimer() {
           timeoutId = setTimeout(() => {

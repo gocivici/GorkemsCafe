@@ -18,7 +18,7 @@ let pageVisible = true;
 let debugMode = false;
 let timeoutHandle;
 
-
+//emoji picker code
 
 // let atPosition = true;
 // img.src = 'demaSprite.png';

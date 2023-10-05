@@ -1,4 +1,8 @@
 
+html {
+    overflow: -moz-scrollbars-vertical; 
+    overflow-y: scroll;
+}
 
     :root {
         --header-image: url('./bgHOME4.png');
@@ -107,27 +111,68 @@ and change the media query according to the comment! */
     }
 
     #input {
+        border:2px solid grey;
+        border-right: none;
+        /* box-shadow: inset -1px -1px #fff, inset 1px 1px grey, inset -2px -2px #dfdfdf, inset 2px 2px #0a0a0a; */
         margin: 0px;
-        width: 83%;
-        margin-right: 5px;
+        width: 530px;
+        margin-right:0px;
         font-size: 18px;
-        height: 100%;
-        margin-top: 10px;
+        height: 34px;
+        /* margin-top: 10px; */
         padding: 5px 5px;
-        margin-bottom: 10px;
+        /* margin-bottom: 10px; */
+        /* vertical-align: middle; */
+        vertical-align: middle;
         
     }
     #textInput > button{
         font-size: 18px;
         width: 16%;
         padding: 5px 5px;
-        margin-top: 10px;
-        margin-right: 0px;
+        /* margin-top: 10px; */
+        vertical-align: middle;
+        /* margin-right: 5px; */
         height: 34px;
         /* padding: 1px 2px; */
         /* all:initial; */
     }
 
+    #textInput{
+        margin-top: 10px;
+        margin-bottom: 10px;
+        /* vertical-align: middle; */
+    }
+
+    .tooltip:not(.shown) {
+        display: none;
+    }
+
+    #emojiButton{
+        border:2px solid grey;
+        /* border-left: none; */
+        vertical-align: middle;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1.5em !important;
+        background-color: white;
+        /* border: none; */
+        margin-right: 5px;
+        min-width: 20px !important;
+        width: 40px !important;
+        height: 34px !important;
+        box-shadow: none;
+        color: black !important;
+        padding:0px !important;
+        border-width: 2px;
+
+        /* padding: 0px !important; */
+    }
+
+    .tooltip{
+        z-index:999;
+        position: absolute;
+        data-popper-placement:top;
+    }
     /* the area below is for all links on your page
 EXCEPT for the navigation */
     #container a {
