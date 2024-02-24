@@ -14,7 +14,7 @@ class Sprite{
         this.frames = frames
         this.currentFrame = 0
         this.elapsedFrames = 0
-        this.frameBuffer = 10
+        this.frameBuffer = 7
         this.sprites = sprites
         this.Up = new Image()
         this.Down = new Image()
@@ -66,12 +66,14 @@ class Sprite{
     updateFrames(){
         this.elapsedFrames++
         // this.currentFrame++
-        if(this.elapsedFrames % this.frameBuffer === 0){
+        // console.log(this.currentFrame);
+        if((this.elapsedFrames % this.frameBuffer === 0) && this.frames>1){
+
         if(this.currentFrame < this.frames-1){
             this.currentFrame++
         }
         else{
-            this.currentFrame=0
+            this.currentFrame=1
         }
     }
     }

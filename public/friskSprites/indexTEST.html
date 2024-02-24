@@ -4,10 +4,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Interweb Cafe</title>
+  <title>CYber Café</title>
   <link rel="icon" type="image/gif" href="/favicon.gif">
 
   <link rel="stylesheet" href="/css/custom98.css">
+  <link rel="stylesheet" href="/css/cafe.css">
   <!-- <link rel="stylesheet" href="https://unpkg.com/98.css"> -->
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/scanlines.css">
@@ -27,7 +28,7 @@
     <div class="scanlines">
       <div class="screen">
       <!-- <div class="asciiArt">Görkem's Webspace</div> -->
-      <div class="asciiArt">CyberCafe   #  *</div>
+      <div class="asciiArt">Cyber Cafe</div>
       <script>
         figlet.defaults({ fontPath: "/css" });
         ascii = document.getElementsByClassName("asciiArt");
@@ -62,21 +63,21 @@
         <nav id="navbar" style="">
           <ul>
 
-            <li><button onclick="location.href='https://gorkem.cc';" class=""><img class="icon"
+            <li><button onclick="location.href='/';" class=""><img class="icon"
                   style="vertical-align: middle;" src="/images/icons/address_book_home.png"></img>
                 <h4>Home</h4>
               </button></li>
-            <li><button onclick="location.href='https://gorkem.cc/projects';" class=""><img
+            <li><button onclick="location.href='/projects';" class=""><img
                   class="icon" style="vertical-align: middle;" src="/images/icons/defragment-0.png"></img>
                 <h4>Projects</h4>
               </button></li>
-            <li><button onclick="location.href='https://gorkem.cc/blog';" class=""><img class="icon"
+            <li><button onclick="location.href='/blog';" class=""><img class="icon"
                   style="vertical-align: middle;"
                   src="/images/icons/newspaper.png"></img>
                 <h4>Blog</h4>
               </button></li>
-            <li><button onclick="javascript:location.href='http://cafe.gorkem.cc'" class="active"><img class="icon"
-                  style="vertical-align: middle;" src="/images/icons/network_cool_two_pcs-5.png"></img>
+            <li><button disabled onclick="javascript:location.href='http://cafe.gorkem.cc'"><img class="icon"
+                  style="vertical-align: middle;filter: grayscale(100%);" src="/images/icons/network_cool_two_pcs-5.png"></img>
                 <h4>Café</h4>
               </button></a></li>
             <!-- <li><a href="#"><button><img class="icon" style="vertical-align: middle;" src="./icons/tools_gear-0.png"></img><h4>DIY</h4></button></a></li> -->
@@ -89,7 +90,7 @@
                   <h4>Library</h4>
                 </button></li>
 
-                            <li><button onclick="location.href='https://gorkem.cc/guestbook';" class="" ><img class="icon" style="vertical-align: middle;"
+                            <li><button onclick="location.href='/guestbook';" class="" ><img class="icon" style="vertical-align: middle;"
                     src="/images/icons/address_book_pad_users.png"></img>
                   <h4>Guestbook</h4>
                 </button></li>
@@ -101,12 +102,10 @@
       </div>
     </div>
     </div>
-    <link rel="stylesheet" href="/css/prism-atom-dark.css"/>
- <link rel="stylesheet" href="/css/cafe.css">
-            <div class="tooltip" role="tooltip">
+                <div class="tooltip" role="tooltip">
                 <emoji-picker></emoji-picker>
               </div>
-<div id="flex">
+    <div id="flex">
   <div class="loungeContainer">
     <div class="window main-left">
       <div class="title-bar">
@@ -118,7 +117,7 @@
       </div>
       <div class="window-body">
 
-        <main>
+        
           <canvas id="canvas"></canvas>
 
           <!-- <canvas id="canvas"></canvas> -->
@@ -130,7 +129,7 @@
             <button id="messageButton">Send</button>
           </form>
 
-        </main>
+        
 
       </div>
     </div>
@@ -147,13 +146,9 @@
       </div>
       <div class="window-body">
         <aside id="rightSidebar">
- <ul>
-  <li>Click anywhere in the box to <strong>move</strong></li>
-  <li>Write <code>/name</code> followed by your name in the text box to <strong>change your name</strong></li>
-  <li>Use the textbox to <strong>chat</strong> and the emoji button to send <strong>emojis</strong></li>
-  <li>Be nice & Have fun!</li>
-   <div class="credits"> Dino sprites by <a href="https://arks.itch.io/dino-characters" target="_blank">@ScissorMarks</a> </div>
-</ul> 
+          <p> lol lol lmao lol lmaolol lmaolol lmaolol lmaolol lmao</p>
+          <p> lol lol lmao lol lmaolol lmaolol lmaolol lmaolol lmao</p>
+          <p> lol lol lmao lol lmaolol lmaolol lmaolol lmaolol lmao</p>
 
         </aside>
       </div>
@@ -162,13 +157,6 @@
   </div>
 
 </div>
-
-<script src="https://cdn.socket.io/4.6.1/socket.io.min.js"></script>
-<script src="./classes/Sprite.js"></script>
-<script src="./classes/Player.js"></script>
-<script type="module" src="https://cdn.jsdelivr.net/npm/emoji-picker-element@^1/index.js"></script>
-<script type="module" src="popup.js"></script>
-<script src="index.js"></script>
       
     <footer id="footer"><img src="/images/icons/www.gif"></img></footer>
 
@@ -179,6 +167,13 @@
 
 
 </body>
+<script src="https://cdn.socket.io/4.6.1/socket.io.min.js"></script>
+<script src="./classes/Sprite.js"></script>
+<script src="./classes/Player.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/npm/emoji-picker-element@^1/index.js"></script>
+<script type="module" src="popup.js"></script>
+<script src="index.js"></script>
+
   <script data-goatcounter="https://gorky.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
 </html>

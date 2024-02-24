@@ -43,7 +43,7 @@ console.log(ctx);
 
 
 
-const background1 = new Sprite({
+const room1 = new Sprite({
     position:{
         x:0,
         y:0
@@ -81,14 +81,14 @@ socket.on('updatePlayers', (bPlayers) =>{
                 message:'',
                 atPosition:true,
                 animationColumn:0,
-                imageSrc:'Down.png',
-                frames: 4,
+                imageSrc:'characterSprites/Green/Down.png',
+                frames: 7,
                 center:true,
                 sprites:{
-                    down:'Down.png',
-                    up:'Up.png',
-                    right:'Right.png',
-                    left:'Left.png'
+                    down:'characterSprites/Green/Down.png',
+                    up:'characterSprites/Green/Up.png',
+                    right:'characterSprites/Green/Right.png',
+                    left:'characterSprites/Green/Left.png'
                 }
                 
             })
@@ -140,7 +140,7 @@ function animate(){
     // console.log(pageVisible)
     
     // ctx.clearRect(0,0,canvas.width,canvas.height);
-    background1.draw()
+    room1.draw()
     animationId = requestAnimationFrame(animate);
     if(readyNow){
     // ctx.drawImage(background,0,0); 

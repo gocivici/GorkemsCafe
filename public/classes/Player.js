@@ -61,7 +61,7 @@ class Player extends Sprite {
         ctx.beginPath();
         ctx.textAlign = "center";
         ctx.font = 'bold 18px win98';
-        ctx.fillStyle = 'cyan';
+        ctx.fillStyle = 'white';
         ctx.fillText(this.username, this.position.x, this.position.y+15);
         ctx.font = 'normal 15px sans-serif';
         
