@@ -101,8 +101,8 @@ socket.on('updatePlayers', (bPlayers) =>{
                 
             })
             // console.log(fPlayers[id])
-            fPlayers[socket.id].username = localStorage.getItem('username')
-            socket.emit('username',fPlayers[socket.id].username);
+            fPlayers[id].username = localStorage.getItem('username')
+            socket.emit('username',fPlayers[id].username);
             
         } else { 
             // if players already exist
