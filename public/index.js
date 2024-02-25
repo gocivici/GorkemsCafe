@@ -18,11 +18,16 @@ let pageVisible = true;
 let debugMode = false;
 let timeoutHandle;
 
-//preload images
-new Image().src = 'characterSprites/Red/Down.png';
-new Image().src = 'characterSprites/Red/Up.png';
-new Image().src = 'characterSprites/Red/Left.png';
-new Image().src = 'characterSprites/Red/Right.png';
+//preload images to avoid firefox NS_BINDING_ABORTED error
+const characters = ["Green","Red","Orange","Blue"];
+characters.forEach((char) => {
+    new Image().src = 'characterSprites/'+ char +'/Down.png';
+    new Image().src = 'characterSprites/'+ char +'/Up.png';
+    new Image().src = 'characterSprites/'+ char +'/Left.png';
+    new Image().src = 'characterSprites/'+ char +'/Right.png';
+});
+
+
 
 //emoji picker code
 
