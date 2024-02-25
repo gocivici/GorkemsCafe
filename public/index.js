@@ -99,7 +99,9 @@ socket.on('updatePlayers', (bPlayers) =>{
             fPlayers[id].clickY = bPlayer.clickY
             fPlayers[id].message = bPlayer.message
             fPlayers[id].username = bPlayer.username
-            spriteFunctionUpdate(fPlayers[id],bPlayer.skin)
+            if(fPlayers[id].skin!=bPlayer.skin){spriteFunctionUpdate(fPlayers[id],bPlayer.skin)}
+            // console.log(fPlayers[id].skin)
+            // console.log(bPlayer.skin)
             // fPlayers[id].sprites = spriteFunction(bPlayer.skin)
             // console.log(fPlayers[id])
 
@@ -225,6 +227,7 @@ document.querySelector('#textInput').addEventListener('submit',(event)=>{
                 fPlayers[socket.id].skin = "Green";
           }    
         socket.emit('skin',fPlayers[socket.id].skin);
+        spriteFunctionUpdate(fPlayers[socket.id],fPlayers[socket.id].skin);
     }else{
     fPlayers[socket.id].message=document.querySelector('#input').value
 

@@ -1,5 +1,5 @@
 class Sprite{
-    constructor({position, imageSrc,frames = 1,center,atPosition,sprites={up:'',down:'',left:'',right:''}}){
+    constructor({position,skin, imageSrc,frames = 1,center,atPosition,sprites={up:'',down:'',left:'',right:''}}){
         this.position = position
         this.atPosition = atPosition
         this.center = center
@@ -16,6 +16,7 @@ class Sprite{
         this.elapsedFrames = 0
         this.frameBuffer = 7
         this.sprites = sprites
+        this.skin = skin
         this.Up = new Image()
         this.Down = new Image()
         this.Left = new Image()
