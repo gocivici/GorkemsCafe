@@ -210,24 +210,25 @@ document.querySelector('#textInput').addEventListener('submit',(event)=>{
         
     }else if(inputValue.includes("/dino ")){
         console.log(inputValue.slice(6,7));
+        var newSkin = "";
         switch(inputValue.slice(6,7)) {
             case '1':
-                fPlayers[socket.id].skin = "Green";
+                newSkin = "Green";
               break;
             case '2':
-                fPlayers[socket.id].skin = "Red";
+                newSkin = "Red";
               break;
             case '3':
-                fPlayers[socket.id].skin = "Orange";
+                newSkin = "Orange";
               break;
             case '4':
-                fPlayers[socket.id].skin = "Blue";
+                newSkin = "Blue";
               break;
             default:
-                fPlayers[socket.id].skin = "Green";
+                newSkin = "Green";
           }    
-        socket.emit('skin',fPlayers[socket.id].skin);
-        spriteFunctionUpdate(fPlayers[socket.id],fPlayers[socket.id].skin);
+        socket.emit('skin',newSkin);
+        
     }else{
     fPlayers[socket.id].message=document.querySelector('#input').value
 
