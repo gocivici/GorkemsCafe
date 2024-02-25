@@ -11,7 +11,7 @@ const io = new Server(server, {
     pingTimeout:5000
 })
 
-var Filter = require('bad-words')
+var Filter = require('./bad-words-hacked');
 filter = new Filter();
 
 // app.use(requireHTTPS); // Set 'SET NODE_ENV=development' in local computer before use
@@ -46,6 +46,7 @@ io.on('connection', (socket)=>{
         roomId:1,
         message:'',
         username:"Visitor",
+        skin:"Green",
         timeoutId:0
     } //create player object with new socket id property
 
@@ -73,11 +74,16 @@ io.on('connection', (socket)=>{
         console.log("updated username for: "+bPlayers[socket.id].username)
     })
 
+    socket.on('skin',(skin)=>{
+        bPlayers[socket.id].skin = skin
+        console.log("updated skin for: "+bPlayers[socket.id].username)
+    })
+
     socket.on('message',(message)=>{
         let timeoutId;
         clearTimeout(bPlayers[socket.id].timeoutId);
-        // bPlayers[socket.id].message = filter.clean(message)
-        bPlayers[socket.id].message = message
+        bPlayers[socket.id].message = filter.cleanHacked(message)
+        // bPlayers[socket.id].message = message
 
         function startTimer() {
           timeoutId = setTimeout(() => {

@@ -21,7 +21,7 @@ class Sprite{
         this.Left = new Image()
         this.Right = new Image()
         this.Up.src = sprites.up
-        this.Down.src = sprites.down
+        this.Down.src = sprites.down 
         this.Left.src = sprites.left
         this.Right.src = sprites.right
     }

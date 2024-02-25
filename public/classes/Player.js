@@ -1,7 +1,7 @@
 
 class Player extends Sprite {
-    constructor({position,clickX,clickY,incrementX,incrementY,userId,username,message,atPosition,animationColumn,imageSrc,frames,center,sprites}){
-        super({position,imageSrc,frames,center,atPosition,sprites})
+    constructor({position,clickX,clickY,incrementX,incrementY,userId,username,skin,message,atPosition,animationColumn,imageSrc,frames,center,sprites}){
+        super({position,imageSrc,frames,center,atPosition,sprites,skin})
         // super({imageSrc})
         this.clickX = clickX
         this.clickY = clickY

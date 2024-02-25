@@ -78,17 +78,18 @@ socket.on('updatePlayers', (bPlayers) =>{
                 clickY:bPlayer.clickY,
                 userId:id,
                 username:'',
+                skin:bPlayer.skin,
                 message:'',
                 atPosition:true,
                 animationColumn:0,
-                imageSrc:'characterSprites/Green/Down.png',
+                imageSrc:'characterSprites/' + bPlayer.skin + '/Down.png',
                 frames: 7,
                 center:true,
                 sprites:{
-                    down:'characterSprites/Green/Down.png',
-                    up:'characterSprites/Green/Up.png',
-                    right:'characterSprites/Green/Right.png',
-                    left:'characterSprites/Green/Left.png'
+                    down:'characterSprites/' + bPlayer.skin + '/Down.png',
+                    up:'characterSprites/' + bPlayer.skin + '/Up.png',
+                    right:'characterSprites/' + bPlayer.skin + '/Right.png',
+                    left:'characterSprites/' + bPlayer.skin + '/Left.png'
                 }
                 
             })
@@ -101,6 +102,7 @@ socket.on('updatePlayers', (bPlayers) =>{
             fPlayers[id].clickY = bPlayer.clickY
             fPlayers[id].message = bPlayer.message
             fPlayers[id].username = bPlayer.username
+            fPlayers[id].skin = bPlayer.skin
 
             //update player position without animation if tab is inactive
             if (document.hidden) {
@@ -205,6 +207,9 @@ document.querySelector('#textInput').addEventListener('submit',(event)=>{
     }else if(inputValue==='/debug'){
         if(debugMode) {debugMode=false;}else{debugMode=true;}
         
+    }else if(inputValue==='/red'){
+        fPlayers[socket.id].skin = "Red";
+        socket.emit('skin',fPlayers[socket.id].skin);
     }else{
     fPlayers[socket.id].message=document.querySelector('#input').value
 
