@@ -198,7 +198,7 @@ socket.emit('clickPosition',clickCoordinates)
 })
 //
 document.querySelector('#textInput').addEventListener('submit',(event)=>{
-    event.preventDefault() //do not refresh page whenform submited
+    event.preventDefault ? event.preventDefault() : event.returnValue = false; //do not refresh page whenform submited
     var inputValue = document.querySelector('#input').value
     if(inputValue.includes("/name ")){
         console.log('namechange')
