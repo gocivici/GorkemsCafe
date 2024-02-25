@@ -18,6 +18,12 @@ let pageVisible = true;
 let debugMode = false;
 let timeoutHandle;
 
+//preload images
+new Image().src = 'characterSprites/Red/Down.png';
+new Image().src = 'characterSprites/Red/Up.png';
+new Image().src = 'characterSprites/Red/Left.png';
+new Image().src = 'characterSprites/Red/Right.png';
+
 //emoji picker code
 
 // let atPosition = true;
