@@ -1,6 +1,6 @@
 
 class Player extends Sprite {
-    constructor({position,clickX,clickY,incrementX,incrementY,userId,username,skin,message,atPosition,animationColumn,imageSrc,frames,center,sprites}){
+    constructor({position,clickX,clickY,incrementX,incrementY,userId,username,skin,message,atPosition,isCharacter2D,animationColumn,imageSrc,frames,center,sprites}){
         super({position,imageSrc,frames,center,atPosition,sprites,skin})
         // super({imageSrc})
         this.clickX = clickX
@@ -10,6 +10,7 @@ class Player extends Sprite {
         this.incrementY = incrementY
         this.userId = userId
         this.username = username
+        this.isCharacter2D = isCharacter2D
         this.message = message
         this.messageSent = false
 
@@ -82,9 +83,17 @@ class Player extends Sprite {
         
             this.atPosition=false
 
+            if(this.isCharacter2D){
+                // console.log(this.angleDeg)
+            if(90<this.angleDeg && this.angleDeg<270){this.image = this.Left}else{this.image = this.Right}
+
+            }else{
+
             if(225<this.angleDeg && this.angleDeg<315){this.image = this.Up}else
             if(45<this.angleDeg && this.angleDeg<135){this.image = this.Down}else
             if(135<this.angleDeg && this.angleDeg<225){this.image = this.Left}else{this.image = this.Right}
+
+        }
 
             this.position.x+=this.incrementX;
             this.position.y+=this.incrementY;

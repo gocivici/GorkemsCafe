@@ -81,18 +81,15 @@ socket.on('updatePlayers', (bPlayers) =>{
                 skin:bPlayer.skin,
                 message:'',
                 atPosition:true,
+                isCharacter2D:true,
                 animationColumn:0,
                 imageSrc:'characterSprites/' + bPlayer.skin + '/Down.png',
                 frames: 7,
                 center:true,
-                sprites:{
-                    down:'characterSprites/' + bPlayer.skin + '/Down.png',
-                    up:'characterSprites/' + bPlayer.skin + '/Up.png',
-                    right:'characterSprites/' + bPlayer.skin + '/Right.png',
-                    left:'characterSprites/' + bPlayer.skin + '/Left.png'
-                }
+                sprites:spriteFunction(bPlayer.skin)
                 
             })
+            // console.log(fPlayers[id])
             fPlayers[socket.id].username = localStorage.getItem('username')
             socket.emit('username',fPlayers[socket.id].username);
             
@@ -102,7 +99,9 @@ socket.on('updatePlayers', (bPlayers) =>{
             fPlayers[id].clickY = bPlayer.clickY
             fPlayers[id].message = bPlayer.message
             fPlayers[id].username = bPlayer.username
-            fPlayers[id].skin = bPlayer.skin
+            spriteFunctionUpdate(fPlayers[id],bPlayer.skin)
+            // fPlayers[id].sprites = spriteFunction(bPlayer.skin)
+            // console.log(fPlayers[id])
 
             //update player position without animation if tab is inactive
             if (document.hidden) {
@@ -207,8 +206,24 @@ document.querySelector('#textInput').addEventListener('submit',(event)=>{
     }else if(inputValue==='/debug'){
         if(debugMode) {debugMode=false;}else{debugMode=true;}
         
-    }else if(inputValue==='/red'){
-        fPlayers[socket.id].skin = "Red";
+    }else if(inputValue.includes("/dino ")){
+        console.log(inputValue.slice(6,7));
+        switch(inputValue.slice(6,7)) {
+            case '1':
+                fPlayers[socket.id].skin = "Green";
+              break;
+            case '2':
+                fPlayers[socket.id].skin = "Red";
+              break;
+            case '3':
+                fPlayers[socket.id].skin = "Orange";
+              break;
+            case '4':
+                fPlayers[socket.id].skin = "Blue";
+              break;
+            default:
+                fPlayers[socket.id].skin = "Green";
+          }    
         socket.emit('skin',fPlayers[socket.id].skin);
     }else{
     fPlayers[socket.id].message=document.querySelector('#input').value
@@ -219,3 +234,21 @@ document.querySelector('#textInput').addEventListener('submit',(event)=>{
 }
     document.querySelector('#textInput').reset();
 })
+
+function spriteFunction(skin) {
+    return {
+        down:'characterSprites/' + skin + '/Down.png',
+        up:'characterSprites/' + skin + '/Up.png',
+        right:'characterSprites/' + skin + '/Right.png',
+        left:'characterSprites/' + skin + '/Left.png'
+    };
+  }
+
+  function spriteFunctionUpdate(obj,skin) {
+    
+        obj.Down.src='characterSprites/' + skin + '/Down.png';
+        obj.Up.src='characterSprites/' + skin + '/Up.png';
+        obj.Left.src='characterSprites/' + skin + '/Left.png';
+        obj.Right.src='characterSprites/' + skin + '/Right.png';
+    
+  }
