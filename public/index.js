@@ -18,7 +18,7 @@ let pageVisible = true;
 let debugMode = false;
 let timeoutHandle;
 
-//preload images to avoid firefox NS_BINDING_ABORTED error
+//preload images to avoid firefox NS_BINDING_ABORTED errorr
 const characters = ["Green","Red","Orange","Blue"];
 characters.forEach((char) => {
     new Image().src = 'characterSprites/'+ char +'/Down.png';
