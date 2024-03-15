@@ -19,8 +19,9 @@ before and after the text */
 the other elements, you will need to move that div outside
 of the container */
 .credits{
-    margin-top: 20px;
+    margin-top: 10px;
     font-size: 12px;
+    color: rgb(162, 162, 162);
 }
     .loungeText ul{
         font-size: 15px;
