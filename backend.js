@@ -39,10 +39,10 @@ io.on('connection', (socket)=>{
     console.log('user connected')
     resetDisconnectTimer();
     bPlayers[socket.id] = {
-        x:615,
-        y:136,
-        clickX:615,
-        clickY:136,
+        x:790,
+        y:154,
+        clickX:790,
+        clickY:154,
         roomId:1,
         message:'',
         username:"Visitor",

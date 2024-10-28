@@ -47,8 +47,8 @@ if(!localStorage.getItem('username')){
    }
 // setInterval(player.animate, 50);
 
-canvas.width = 32 * 21 //672
-canvas.height = 32 * 12 //384
+canvas.width = 32 * 26//32 * 21 //672
+canvas.height = 32 * 15 //32 * 12 //384
 
 console.log(ctx);
 
@@ -59,7 +59,16 @@ const room1 = new Sprite({
         x:0,
         y:0
     },
-    imageSrc: './img/baackground.png'
+    imageSrc: './img/baackground300adj.png'
+})
+
+const TV = new Sprite({
+    position:{
+        x:95,
+        y:122
+    },
+    imageSrc: './img/TV.png',
+    frames: 27
 })
 
 
@@ -145,17 +154,29 @@ function getCursorPosition(canvas, event) {
 }
 
 // animate from point a to point b
+let frames_per_second = 60;
 
-let animationId
-// setInterval(animate, 60);
-function animate(){
+let interval = Math.floor(1000 / frames_per_second); // rounding down since our code will rarely run at the exact interval
+let startTime = performance.now();
+let previousTime = startTime;
+
+let currentTime = 0;
+let deltaTime = 0;
+
+// set anmiation speed 60fps regardless of display refresh rate, based on: https://www.kirupa.com/animations/ensuring_consistent_animation_speeds.htm
+function animate(timestamp){
  
     ctx.imageSmoothingEnabled = false;
+
+    currentTime = timestamp;
+    deltaTime = currentTime - previousTime;
     // console.log(pageVisible)
-    
+    if (deltaTime > interval) {
+        previousTime = currentTime - (deltaTime % interval);
     // ctx.clearRect(0,0,canvas.width,canvas.height);
-    room1.draw()
-    animationId = requestAnimationFrame(animate);
+    room1.draw();
+    TV.draw()
+    
     if(readyNow){
     // ctx.drawImage(background,0,0); 
 
@@ -169,7 +190,10 @@ function animate(){
     
     }
 
+}
+
     // fPlayer = fPlayers[socket.id]
+
 
     // if(){}
 // goToPosition(fPlayer,clickCoordinates)
@@ -178,7 +202,7 @@ function animate(){
     // console.log(fPlayer.animationColumn)
     // return [incrementX,incrementY]
 }
-
+requestAnimationFrame(animate);
 // function goToPosition(fPlayer,clickCoordinates){
     
     
@@ -188,7 +212,7 @@ function animate(){
 
 
 
-animate()
+requestAnimationFrame(animate);
 
 
 

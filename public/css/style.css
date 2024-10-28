@@ -397,7 +397,7 @@ before and after the text */
 the other elements, you will need to move that div outside
 of the container */
     #container {
-        max-width: 960px;
+        max-width: 1080px;
         /* this is the width of your layout! */
         /* if you change the above value, scroll to the bottom
 and change the media query according to the comment! */
