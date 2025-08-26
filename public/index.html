@@ -84,7 +84,7 @@
                   class="icon" style="vertical-align: middle;" src="/images/icons/help_sheet-0.png"></img>
                 <h4>About</h4>
               </button></li>
-            <li><button disabled><img class="icon" style="vertical-align: middle; filter: grayscale(100%);"
+            <li><button onclick="location.href='https://gorkem.cc/library';"><img class="icon" style="vertical-align: middle;"
                     src="/images/icons/internet_connection_wiz-0.png"></img>
                   <h4>Library</h4>
                 </button></li>
@@ -185,4 +185,18 @@
 </body>
 <script data-goatcounter="https://cafe.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
+<script>
+
+sendPresence();  
+function sendPresence() {
+  fetch('https://presence.gorkyver.com/heartbeat', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({ page: "cafe" })
+  });
+}
+             
+setInterval(sendPresence, 15000); 
+
+</script>
 </html>
